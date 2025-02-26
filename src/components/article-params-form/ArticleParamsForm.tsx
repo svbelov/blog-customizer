@@ -15,6 +15,7 @@ import {
 	fontFamilyOptions,
 	fontSizeOptions,
 } from 'src/constants/articleProps';
+import { Text } from 'src/ui/text';
 import { RadioGroup } from 'src/ui/radio-group';
 import { Separator } from 'src/ui/separator';
 import { useOutsideClickClose } from 'src/ui/select/hooks/useOutsideClickClose';
@@ -38,6 +39,7 @@ export const ArticleParamsForm = ({
 
 	const resetHandler = () => {
 		setArticleState(defaultArticleState);
+		setSelectArticleState(defaultArticleState);
 	};
 
 	const changeHandler = (key: keyof ArticleStateType, value: OptionType) => {
@@ -65,6 +67,10 @@ export const ArticleParamsForm = ({
 					className={styles.form}
 					onSubmit={submitHandler}
 					onReset={resetHandler}>
+					<Text size={31} weight={800} uppercase>
+						Задайте параметры
+					</Text>
+
 					<Select
 						options={fontFamilyOptions}
 						selected={selectArticleState.fontFamilyOption}
