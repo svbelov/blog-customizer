@@ -21,16 +21,16 @@ import { Separator } from 'src/ui/separator';
 import { useOutsideClickClose } from 'src/ui/select/hooks/useOutsideClickClose';
 
 type ArticleParamsFormProps = {
-	articleState: ArticleStateType;
 	setArticleState: (param: ArticleStateType) => void;
 };
 
 export const ArticleParamsForm = ({
-	articleState,
 	setArticleState,
 }: ArticleParamsFormProps) => {
 	const [isOpen, setIsOpen] = useState(false);
-	const [selectArticleState, setSelectArticleState] = useState(articleState);
+
+	const [selectArticleState, setSelectArticleState] =
+		useState(defaultArticleState);
 
 	const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
